@@ -19,6 +19,8 @@ export {
   SignUp,
   Button,
   PostForm,
+
   potcard,
   AuthLayout
+  potcard
 }
