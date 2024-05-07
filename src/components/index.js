@@ -8,6 +8,7 @@ import SignUp from './SignUp'
 import Button from './Button'
 import PostForm from './post-form/PostForm'
 import potcard from '../components'
+import AuthLayout from './AuthLayout'
 export {
   Header,
   Footer,
@@ -18,5 +19,8 @@ export {
   SignUp,
   Button,
   PostForm,
+
+  potcard,
+  AuthLayout
   potcard
 }
