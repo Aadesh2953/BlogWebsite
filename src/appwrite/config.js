@@ -71,7 +71,6 @@ export class Service {
       config.appwriteDatabaseId,
         config.appwriteCollectionId,
         queries,
-
     )
     } catch (error) {
       console.log(error);
