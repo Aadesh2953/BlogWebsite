@@ -4,7 +4,13 @@ import container from './container/container'
 import Logo from './Logo'
 import Logout from './Header/Logout'
 import Input from './Input.jsx'
-import Button from './Button.jsx'
+import RTE from './RTE'
+import SignUp from './SignUp'
+import Button from './Button'
+import PostForm from './post-form/PostForm'
+import potcard from '../components'
+import AuthLayout from './AuthLayout'
+import Home from './Pages/Home.jsx'
 export {
   Header,
   Footer,
@@ -12,5 +18,10 @@ export {
   Logo,
   Logout,
   Input,
-  Button
+  RTE,
+  SignUp,
+  Button,
+  PostForm,
+  potcard,
+  AuthLayout
 }
