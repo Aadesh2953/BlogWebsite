@@ -1,6 +1,6 @@
 import {React,useState,useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import {container,PostForm} from '../index'
+import {Container,PostForm} from '../index'
 import service from '../../appwrite/config';
 function EditPost() {
 const [posts,setposts]=useState(null);
@@ -25,9 +25,9 @@ useEffect(()=>
 let navigate=useNavigate()
   return posts?(<>
   <div className='py-8'>
-    <container>
+    <Container>
         <PostForm post={posts}/>
-    </container>
+    </Container>
   </div>
   </>):null
 }
