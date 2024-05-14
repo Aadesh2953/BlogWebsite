@@ -15,7 +15,7 @@ function Login() {
     try {
       const session = await authservice.login(data);
       if (session) {
-        const userData = await authservice.getcurrentuser();
+        const userData = await authservice.getCurrentUser();
         if (userData) {
           dispatch(authlogin(userData));
           navigate("/");

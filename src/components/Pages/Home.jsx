@@ -2,6 +2,8 @@
 import React, {useEffect, useState} from 'react'
 import service from "../../appwrite/config.js"; 
 import { Container } from '../index.js';
+import { useSelector } from 'react-redux';
+import PostCard from '../Postcard.jsx';
 function Home() {
     const [posts, setPosts] = useState([])
 
@@ -13,7 +15,7 @@ function Home() {
         })
     }, [])
   
-    if (posts.length === 0) { 
+    if (useSelector(state=>state.status==false)) { 
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
@@ -40,5 +42,6 @@ function Home() {
                 </div>
             </Container>
         </div>
-)}
+    )}
+
 export default Home

@@ -9,7 +9,7 @@ function AllPosts() {
    service.getPosts().then((posts)=>{
     if(posts)
         {
-            setposts(posts.document);
+            setposts(posts.documents);
         }
    })  
 })
@@ -17,11 +17,11 @@ function AllPosts() {
     <div className='w-full-py-8'>
         <Container>
             {
-                posts.map((post)=>{(
-                    <div key={post.$id} className='p-2 2-1/4'>
-                        <Postcard/>
-                    </div>
-                )  //IF WE DONT WANT TO RETURN WE USE ()
+                posts.map((post)=>{
+                    return(<div key={post.$id} className='p-2 2-1/4'>
+                        <Postcard {...post}/>
+                    </div>) 
+                  //IF WE DONT WANT TO RETURN WE USE ()
                 })
             }
             </Container>
