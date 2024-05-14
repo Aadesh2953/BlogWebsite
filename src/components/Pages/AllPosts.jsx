@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
-import service from '../appwrite/config'
-import potcard from '../index'
-import container from './container/container'
+import service from '../../appwrite/config'
+import {Postcard} from '../index'
+import {Container} from '../index'
 function AllPosts() {
    const [posts,setposts]=useState([])
    useEffect(()=>
@@ -15,16 +15,16 @@ function AllPosts() {
 })
     return (
     <div className='w-full-py-8'>
-        <container>
+        <Container>
             {
                 posts.map((post)=>{(
                     <div key={post.$id} className='p-2 2-1/4'>
-                        <potcard/>
+                        <Postcard/>
                     </div>
                 )  //IF WE DONT WANT TO RETURN WE USE ()
                 })
             }
-            </container>
+            </Container>
     </div>
   )
 } 

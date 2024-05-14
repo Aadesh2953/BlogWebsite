@@ -11,6 +11,7 @@ export class AuthService {
   }
   async createAccount({ email, password, name }) {
     try {
+      console.log("i AM createAccount")
       let userAccount = await this.account.create(
         ID.unique(),
         email,
@@ -24,25 +25,26 @@ export class AuthService {
         return userAccount;
       }
     } catch (error) {
-      console.log(err);
-    }
-  }
-  async login({ email, password }) {
-    try {
-      let credentials = this.account.createEmailSession(email, password);
-      return credentials;
-    } catch (error) {
-      throw error;
-    }
-  }
-  async getCurrentUser() {
-    try {
-      return await this.account.get();
-    } catch (error) {
       console.log(error);
     }
-    return null;
   }
+  async login({email, password}) {
+    try {
+        return await this.account.createEmailPasswordSession(email, password);
+    } catch (error) {
+      console.log("i am password")
+        throw error;
+    }
+}
+  async getCurrentUser() {
+    try {
+        return await this.account.get();
+    } catch (error) {
+        console.log("Appwrite serive :: getCurrentUser :: error", error);
+    }
+
+    return null;
+}
   async logout()
   {
     try {
