@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { login as authlogin } from "../store/authSlice";
 import { Button, Input, Logo } from "./index";
-import { useDispatch } from "react-redux";
-import authservice, { set } from "react-hook-form";
+import { useDispatch } from "react-redux"
+import authservice from "../appwrite/auth";
+import {useForm} from "react-hook-form"
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -84,5 +85,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;

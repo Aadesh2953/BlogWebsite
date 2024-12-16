@@ -15,7 +15,7 @@ function PostForm({ post }) {
       },
     });
   const navigate = useNavigate();
-  const userdata = useSelector((state) => state.auth.userdata);
+  const userdata = useSelector((state) => state.userdata);
   const submit = async (data) => {
     if (post) {
       data.image[0] ? service.uploadFile(data.image[0]) : null;
