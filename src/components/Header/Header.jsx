@@ -1,10 +1,10 @@
 import React from "react";
-import { container, Logo, Logout } from "../index";
+import { Container, Logo, Logout } from "../index";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Header() {
-  let authStatus = useSelector((state) => state.auth.status);
+  let authStatus = useSelector((state) => state.status);
   const navigate = useNavigate();
   const navItems = [
     {
@@ -36,12 +36,14 @@ function Header() {
   return (
     <div>
       <header className="py-3 shadow bg-gray-500">
-        <container>
+        <Container>
+          
           <nav className="flex">
-            <div className="mr-5">
+            <div className="mr-4 ">
               <Link to="/">
                 <Logo width="70px" />
               </Link>
+              </div>
               <ul className="flex ml-auto">
                 {navItems.map((item) => {
                   return item.active ? (
@@ -63,9 +65,9 @@ function Header() {
                   <Logout/>
                 </li>
               )} 
-            </div>
+            
           </nav>
-        </container>
+        </Container>
       </header>
     </div>
   );
