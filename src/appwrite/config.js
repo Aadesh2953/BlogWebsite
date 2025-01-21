@@ -126,10 +126,11 @@ export class Service{
     }
 
     getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+        const asnwer=   this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId
         )
+        return asnwer;   
     }
 }
 

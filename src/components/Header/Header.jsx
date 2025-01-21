@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Logo, Logout } from "../index";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Header() {
   let authStatus = useSelector((state) => state.status);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const navItems = [
     {
       name: "Home",
@@ -48,14 +48,21 @@ function Header() {
                 {navItems.map((item) => {
                   return item.active ? (
                     <li key={item.name}>
-                      <button
+                      {/* <button
                         onClick={() => {
                           navigate(item.slug);
                         }}
                         className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
                       >
                         {item.name}
-                      </button>
+                      </button> */}
+                      <NavLink to={item.slug}
+                       className={({ isActive }) =>
+                        isActive
+                          ? "inline-block px-6 py-2 bg-blue-500 text-white rounded-full"
+                          : "inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
+                      }
+                      >{item.name}</NavLink>
                     </li>
                   ) : null;
                 })}
