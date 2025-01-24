@@ -13,7 +13,7 @@ export default function Signup() {
     const {register, handleSubmit} = useForm()
 
     const create = async(data) => {
-        console.log("create")
+        
         setError("")
         try {
             const userData = await authservice.createAccount(data)

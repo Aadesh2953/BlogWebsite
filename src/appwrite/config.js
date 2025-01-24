@@ -69,6 +69,7 @@ export class Service{
     }
 
     async getPost(slug){
+        console.log('here',slug)
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,

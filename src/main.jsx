@@ -9,8 +9,6 @@ import { createBrowserRouter,Route, RouterProvider } from 'react-router-dom'
 import {} from './components/index.js'
 import Home from './components/Pages/Home'
 import { AuthLayout, Login } from './components/index.js'
-
-
 import AddPost from "./components/Pages/AddPost";
 import Signup from './components/Pages/SignUpPage.jsx'
 import EditPost from "./components/Pages/EditPost";
@@ -19,6 +17,7 @@ import Post from "./components/Pages/Post";
 
 
 import AllPosts from "./components/Pages/AllPosts";
+import YourPost from './components/Pages/YourPost.jsx';
 const router=createBrowserRouter([
   {
     path:'/',
@@ -49,6 +48,12 @@ const router=createBrowserRouter([
                 <AllPosts />
             </AuthLayout>
         ),
+    },
+    {
+      path:"/your-posts",
+      element:(<AuthLayout>
+        <YourPost/>
+      </AuthLayout>)
     },
     {
         path: "/add-post",

@@ -48,11 +48,11 @@ function Login() {
           Sign Up
         </Link>
       </p>
-      {error && <p className="text-red-500 text-center">{error}</p>};
+      {error && <p className="text-red-500 text-center">{error}</p>}
       <form onSubmit={handleSubmit(login)} className="mt-8">
         <div className="space-y-8">
           <Input
-            label="Email:"
+            label="Email: "
             placeholder="Enter Your Email"
             type="email"
             {...register("email", {
@@ -66,7 +66,7 @@ function Login() {
             })}
           />
           <Input
-            label="Password:"
+            label="Password: "
             placeholder="Enter Your Password"
             type="Password"
             {...register("password", {

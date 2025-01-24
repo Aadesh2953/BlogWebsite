@@ -7,7 +7,7 @@ function AllPosts() {
   const [posts, setposts] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    alert("called");
+  
     setLoading(true);
     // console.log('loading',loading)
     service
@@ -29,10 +29,6 @@ function AllPosts() {
                 <Postcard {...post} />
               </div>
             );
-            {
-              loading;
-            }
-            //IF WE DONT WANT TO RETURN WE USE ()
           })}
         </Container>
       </div>

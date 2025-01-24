@@ -28,6 +28,11 @@ function Header() {
       active: authStatus,
     },
     {
+      name: "My Posts",
+      slug: "/your-posts",
+      active: authStatus,
+    },
+    {
       name: "Add Post",
       slug: "/add-post",
       active: authStatus,

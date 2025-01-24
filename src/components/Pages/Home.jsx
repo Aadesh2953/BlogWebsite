@@ -18,7 +18,6 @@ function Home() {
   }, []);
 
   const isLoggedIn =  useSelector((state) => state.status);
-//  console.log('LOGGED',isLoggedIn);
   if(loading)
   {
     return(
@@ -28,7 +27,6 @@ function Home() {
           role="status"
           className="w-16 h-16 text-blue-500"
         >
-          <span className="visually-hidden">Loading...</span>
         </Spinner>
       </div>
     )
