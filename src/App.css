@@ -1,42 +1,90 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Ensure the background color or gradient applies to the whole page */
+html, body {
+  height: 100%; /* Ensures the body spans the full height of the viewport */
+  margin: 0; /* Removes default browser margin */
+  padding: 0;
+  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Vibrant gradient background */
+  color: #ffffff; /* Default text color */
+  font-family: 'Arial', sans-serif; /* Clean font style */
 }
 
+/* Root container styling */
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Makes sure it fills the viewport height */
+  padding: 2rem;
+}
+
+/* Logo styling */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #ffffff88); /* Softer hover effect */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Card styling */
 .card {
   padding: 2em;
+  background: #ffffff; /* Clean white background for cards */
+  color: #333; /* Dark text for readability */
+  border-radius: 15px; /* Smooth rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deep shadow for depth */
+  margin-bottom: 1.5rem; /* Space between cards */
+  width: 100%; /* Responsive cards */
+  max-width: 800px; /* Limit width */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
+
+/* Informational text styling */
+.read-the-docs {
+  color: #ffffff; /* Contrasting color for light background */
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Button styling for actions */
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: #ff5a5f; /* Vibrant red for buttons */
+  color: #ffffff; /* White text for contrast */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #e0484d; /* Slightly darker red on hover */
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5em;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useCallback,useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, Select, RTE } from "../index";
 import service from "../../appwrite/config";
@@ -15,46 +15,50 @@ function PostForm({ post }) {
       },
     });
   const navigate = useNavigate();
-  const userdata = useSelector((state) => state.userdata);
+  const userdata = useSelector((state) => state.userData);
   const submit = async (data) => {
     if (post) {
-      data.image[0] ? service.uploadFile(data.image[0]) : null;
-      if (file) {
-        service.deleteFile(post.featuredimage);
-        const dbpost = await service.updatePost(post.$id, {
-          ...data,
-          featuredImage: file ? file.$id : undefined,
-        });
-        if (dbpost) {
-          navigate(`/post/${dbpost.$id}`);
+        const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
+
+        if (file) {
+            service.deleteFile(post.featuredImage);
         }
-      } else {
-        if (data.image[0]) {
-          const file = await service.uploadFile(data.image[0]);
-          if (file) {
+
+        const dbPost = await service.updatePost(post.$id, {
+            ...data,
+            featuredImage: file ? file.$id : undefined,
+        });
+
+        if (dbPost) {
+            navigate(`/post/${dbPost.$id}`);
+        }
+    } else {
+        const file = await service.uploadFile(data.image[0]);
+
+        if (file) {
             const fileId = file.$id;
             data.featuredImage = fileId;
-            const dbpost = await service.createPost({
-              ...data,
-              userId: userdata.$id,
-            });
-            if (dbpost) {
-              navigate(`/post/:${dbpost.$id}`);
+            const dbPost = await service.createPost({ ...data, userId: userdata.$id });
+
+            if (dbPost) {
+                navigate(`/post/${dbPost.$id}`);
             }
-          }
         }
-      }
     }
-  };
+};
+
+  
   const slugTransform = useCallback((value) => {
-    if (value && typeof value == "string") {
-      return value.trim
-        .toLowerCase()
-        .replace(/^[a-zA-Z\d\s]+/g, "-")
-        .replace(/\s/g, "-");
-    }
-  });
-  React.useEffect(()=>{
+    if (value && typeof value === "string")
+        return value
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-zA-Z\d\s]+/g, "-")
+            .replace(/\s/g, "-");
+
+    return "";
+}, []);
+  useEffect(()=>{
    const subscription=watch((value,{name})=>{
     if(name=="title")
     {
@@ -93,7 +97,7 @@ function PostForm({ post }) {
         {post && (
             <div className="w-full mb-4">
                 <img
-                    src={appwriteService.getFilePreview(post.featuredImage)}
+                    src={service.getFilePreview(post.featuredImage)}
                     alt={post.title}
                     className="rounded-lg"
                 />
