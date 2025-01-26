@@ -3,7 +3,9 @@ import React, { useId } from "react";
 function Select({ options, label, className, ...props }, ref) {
   const id = useId();
   return (
+    
     <div className="w-full">
+      
       {label && (
         <label htmlFor={id} className="">
           <select
@@ -14,7 +16,7 @@ function Select({ options, label, className, ...props }, ref) {
           >
             {options?.map((option)=>
         {
-             <option key={option} value={option}></option>
+             return <option key={option} value={option}>{option}</option>//maps always returns a value
         })}:Nothing to display
           </select>
         </label>

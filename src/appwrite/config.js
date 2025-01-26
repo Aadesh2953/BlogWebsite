@@ -16,6 +16,7 @@ export class Service{
 
     async createPost({title, slug, content, featuredImage, status, userId}){
         try {
+            const userid=userId
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
@@ -25,7 +26,7 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId,
+                    userid,
                 }
             )
         } catch (error) {
@@ -68,6 +69,7 @@ export class Service{
     }
 
     async getPost(slug){
+        console.log('here',slug)
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
@@ -125,10 +127,11 @@ export class Service{
     }
 
     getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+        const asnwer=   this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId
         )
+        return asnwer;   
     }
 }
 

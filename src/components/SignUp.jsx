@@ -1,19 +1,19 @@
 import React, {useState} from 'react'
-import authservice from '../appwrite/auth'
+import authservice from '../appwrite/auth.js'
 import {Link ,useNavigate} from 'react-router-dom'
-import {login} from '../store/authSlice'
+import {login} from '../store/authSlice.js'
 import {Button, Input, Logo} from './index.js'
 import {useDispatch} from 'react-redux'
 import {useForm} from 'react-hook-form'
 
-function Signup() {
+export default function Signup() {
     const navigate = useNavigate()
     const [error, setError] = useState("")
     const dispatch = useDispatch()
     const {register, handleSubmit,formState} = useForm()
 
-    async function create(data) {
-        console.log('i am create')
+    const create = async(data) => {
+        
         setError("")
         try {
             const userData = await authservice.createAccount(data)
@@ -86,4 +86,7 @@ function Signup() {
   )
 }
 
+<<<<<<< HEAD
 export default Signup
+=======
+>>>>>>> 6290b60f8524fee02990f81ae6bcd93b04927cdc

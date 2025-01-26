@@ -5,11 +5,12 @@ import service from '../../appwrite/config';
 function EditPost() {
 const [posts,setposts]=useState(null);
 const {slug}=useParams();
+let navigate=useNavigate()
 useEffect(()=>
 {
    if(slug)
     {
-        service.getpost(slug).then((post)=>
+        service.getPost(slug).then((post)=>
         {
             if(post)
                 {
@@ -22,7 +23,7 @@ useEffect(()=>
         })
     }
 },[slug,navigate])
-let navigate=useNavigate()
+
   return posts?(<>
   <div className='py-8'>
     <Container>
